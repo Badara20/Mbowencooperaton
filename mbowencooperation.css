@@ -2,19 +2,19 @@
   --primary: #0d5c63;      /* deep teal */
   --primary-dark: #084148;
   --accent: #f4a261;       /* warm orange */
-  --bg: --white;           /* light background */
-  --section-alt: #898d89;  /* soft green band (products) */
+  --bg: #f5f7fb;           /* light background */
+  --section-alt: #e5f8e5;  /* soft green band (products) */
   --text: #222;
   --light-text: #555;
   --white: #ffffff;
-  --border: #2a9909;
+  --border: #dde2ec;
 }
 
+/* Reset / base */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  
 }
 
 body {
@@ -29,6 +29,7 @@ a {
   text-decoration: none;
 }
 
+/* Header / nav */
 header {
   background: var(--white);
   border-bottom: 1px solid var(--border);
@@ -75,11 +76,13 @@ header {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a:focus-visible {
   background-color: var(--primary);
   color: var(--white);
 }
 
+/* Buttons */
 .btn {
   display: inline-block;
   padding: 0.6rem 1.2rem;
@@ -111,6 +114,7 @@ header {
   color: var(--white);
 }
 
+/* Layout */
 main {
   max-width: 1100px;
   margin: 0 auto;
@@ -179,6 +183,7 @@ main {
   margin-bottom: 0.3rem;
 }
 
+/* Sections */
 section {
   margin-bottom: 2.5rem;
 }
@@ -212,7 +217,7 @@ section {
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.25rem;
   color: #1f3c20;
 }
@@ -420,7 +425,8 @@ textarea {
 .totals {
   display: flex;
   gap: 2rem;
-  font-size: 0.95rem;  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 600;
   flex-wrap: wrap;
 }
 
@@ -446,6 +452,7 @@ textarea {
   font-size: 1rem;
 }
 
+/* Footer */
 footer {
   border-top: 1px solid #e0e0e0;
   padding: 0.75rem 1rem;
@@ -455,6 +462,22 @@ footer {
   background: var(--white);
 }
 
+/* Tabs (only if your HTML uses tab-section / tab-link) */
+.tab-section {
+  display: none;
+}
+
+.tab-section.active {
+  display: block;
+}
+
+.tab-link.active {
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 999px;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .hero {
     grid-template-columns: 1fr;
@@ -464,8 +487,16 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .nav-links {
-    display: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
   }
 
   main {
@@ -481,17 +512,28 @@ footer {
     gap: 0.5rem;
   }
 }
-.tab-section {
-  display: none;
-}
 
-.tab-section.active {
-  display: block;
-}
+/* Extra small phones */
+@media (max-width: 480px) {
+  main {
+    padding: 1rem 0.75rem;
+  }
 
-.tab-link.active {
-  background-color: var(--primary);
-  color: var(--white);
-  border-radius: 999px;
-}
+  .hero-title {
+    font-size: 1.5rem;
+  }
 
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .products-grid,
+  .testimonials-grid,
+  .contact-grid {
+    gap: 0.75rem;
+  }
+
+  .nav {
+    padding: 0.5rem 0.75rem;
+  }
+}

@@ -58,8 +58,9 @@ header {
 }
 
 .logo img {
-  height: 32px;
-  margin-right: 10px;
+  height: 48px;        /* bigger than original 32px */
+  width: auto;         /* keeps proportions */
+  margin-right: 12px;  /* slightly more space */
   vertical-align: middle;
 }
 
@@ -537,3 +538,4 @@ footer {
     padding: 0.5rem 0.75rem;
   }
 }
+
